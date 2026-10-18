@@ -1,0 +1,11 @@
+services:
+  app:
+    image: ${IMAGE:?IMAGE is required}
+    container_name: alfa-app
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file: .env
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
